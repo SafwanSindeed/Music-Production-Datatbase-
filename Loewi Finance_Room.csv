@@ -1,12 +1,12 @@
-"room_id";"room_name";"capacity";"hourly_rate";"is_available"
-"R001";"Sonic Sphere";5;25.0;1
-"R002";"Note Nook";6;16.0;0
-"R003";"Symphonic Den";3;20.3;1
-"R004";"Melodic Oasis";7;32.0;1
-"R005";"Noisemaker Tower";9;20.14;1
-"R006";"Acoustic Vault";3;25.0;0
-"R007";"Echo Meadow";5;25.0;1
-"R008";"Tower of Vibes";4;10.0;1
-"R009";"Soundwave Hall";4;10.0;1
-"R010";"Harmonic Suite";5;15.52;0
-"R011";"Rythmic Haven";7;27.1;1
+room_id,room_name,capacity,hourly_rate,is_available
+R001,Sonic Sphere,5,25.0,1
+R002,Note Nook,6,16.0,0
+R003,Symphonic Den,3,20.3,1
+R004,Melodic Oasis,7,32.0,1
+R005,Noisemaker Tower,9,20.14,1
+R006,Acoustic Vault,3,25.0,0
+R007,Echo Meadow,5,25.0,1
+R008,Tower of Vibes,4,10.0,1
+R009,Soundwave Hall,4,10.0,1
+R010,Harmonic Suite,5,15.52,0
+R011,Rythmic Haven,7,27.1,1
