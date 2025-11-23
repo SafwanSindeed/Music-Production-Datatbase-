@@ -1,0 +1,12 @@
+"invoice_id";"room_id";"customer_name";"booking_date";"amount"
+1;"R001";"Aaron Todd";"2025-10-30";22.1
+2;"R002";"Yuna Sakura";"2025-11-02";24.3
+3;"R003";"Omar Isik";"2025-11-02";29.04
+4;"R004";"Jared Silver";"2025-11-10";24.0
+5;"R005";"Gerald Nova";"2025-10-28";25.3
+6;"R006";"Tyler Ardon";"2025-11-02";26.0
+7;"R007";"Xeno King";"2025-11-05";29.0
+8;"R008";"Cory Rodriguez";"2025-10-31";28.8
+9;"R009";"Kevin Morales";"2025-11-20";26.15
+10;"R010";"Erin Myers";"2025-11-20";26.4
+11;"R011";"Wolf Sagitta";"2025-11-16";27.55
