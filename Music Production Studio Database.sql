@@ -31,7 +31,7 @@ CREATE TABLE artists
 Create TABLE producers
 (
 	producer_id       		    VARCHAR(10)                 PRIMARY KEY,
-	prducer_name                VARCHAR(50) 			    NOT NULL				UNIQUE,
+	producer_name                VARCHAR(50) 			    NOT NULL				UNIQUE,
 	prod_specialization    		VARCHAR(50)					NOT NULL,
 	producer_hourly_rate        INT							NOT NULL,
 	producer_contact_number     VARCHAR(50)
