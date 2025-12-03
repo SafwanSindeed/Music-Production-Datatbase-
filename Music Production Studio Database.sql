@@ -22,9 +22,17 @@ CREATE TABLE artists
 	artist_phone 			  	VARCHAR(50),
 	artist_email 			  	VARCHAR(50),
 	artist_manager_name 		VARCHAR(50),
-	artist_contract_start 	  	DATE						NOT NULL,
-	artist_contract_end 	  	DATE						NOT NULL,
 	artist_notes 				TEXT
+);
+
+
+CREATE TABLE artist_contracts
+(
+	contract_id					VARCHAR(10)					PRIMARY KEY,
+    artist_id					VARCHAR(10)					NOT NULL,
+    contract_start				DATE						NOT NULL,
+    contract_end				DATE						NOT NULL,
+    contract_status				VARCHAR(20)					NOT NULL
 );
 
 
@@ -127,26 +135,49 @@ CREATE TABLE session_equipment
 
 -- insert rows into tables
 INSERT INTO artists VALUES
-('A001', 'Taylor Swift', 'Pop', '212-555-0191', 'taylor@repmusic.com', 'Jack Antonoff', '2018-01-01', '2026-12-31',  'Platinum-selling artist'),
-('A002', 'Drake', 'Hip-Hop', '416-555-8821', 'drake@ovo.com', 'Noah 40 Shebib', '2017-05-12', '2025-05-11' ,'OVO founder'),
-('A003', 'Bad Bunny', 'Reggaeton', '787-555-3311', 'badbunny@rimas.com', 'Noah Assad', '2019-03-08', '2027-03-08', 'Stadium tours'),
-('A004', 'The Weeknd', 'R&B', '647-555-1202', 'weeknd@xo.com', 'Wassim Sal Slaiby', '2016-02-02', '2024-12-31', 'Super Bowl performer'),
-('A005', 'Billie Eilish', 'Alternative', '310-555-4419', 'billie@darkroom.com', 'Danny Rukasin', '2020-10-10', '2028-10-10', 'Grammy winner'),
-('A006', 'Kendrick Lamar', 'Hip-Hop', '505-299-5703', 'kendrick@pgLang.com', 'Anthony Saleh', '2022-11-10', '2026-12-31', 'Pulitzer Prize winner'),
-('A007', 'Ariana Grande', 'Pop', '305-508-5662', 'ariana@repmusic.com', 'Brandon Creed', '2011-08-22', '2026-11-30', 'Most debut songs at #1 Billboard'),
-('A008', 'Harry Styles', 'Pop', '505-671-7847', 'harry@columbia.com', 'Jeffrey Azoff', '2016-06-20', '2026-10-31', 'Brit Award winner'),
-('A009', 'SZA', 'R&B', '276-501-3317', 'sza@tde.com', 'Terrence Henderson', '2013-07-25', '2025-12-22', 'Grammy winner'),
-('A010', 'Justin Bieber', 'Pop', '983-277-4396', 'justinbieber@defjam.com', 'Scooter Braun', '2008-04-05', '2026-11-24', 'Best male pop singer'),
-('A011', 'Rihanna', 'Pop', '983-323-0640', 'rihanna@rocnation.com', 'Jay Brown', '2010-04-26', '2026-08-09', 'Fenty Beauty founder'),
-('A012', 'Lady Gaga', 'Pop', '505-565-3023', 'ladygaga@interscope.com', 'Bobby Campbell', '2007-11-12', '2026-01-30', 'Oscar and Grammy winner'),
-('A013', 'Anitta', 'Brazilian Funk', '472-283-0515', 'anitta@repmusic.com', 'Rebeca Leon', '2023-04-24', '2027-03-25', 'International brazilian artist'),
-('A014', 'Rosalia', 'Latin Pop', '779-770-8803', 'rosalia@columbia.com', 'Jonathan Dickens', '2018-02-28', '2027-05-20', '#1 Classical and Pop album'),
-('A015', 'Mary J. Blige', 'R&B', '505-646-7659', 'maryblige@repmusic.com', 'Steve Rifkind', '2018-07-02', '2025-12-10', 'Grammy winner'),
-('A016', 'John Legend', 'R&B', '305-783-2011', 'johnlegend@repmusic.com', 'Ty Stiklorius', '2021-11-01', '2026-04-20', 'EGOT winner'),
-('A017', 'Jay-Z', 'Hip-Hop', '472-288-3811', 'jayz@rocnation.com', 'Desiree Perez', '2008-06-06', '2029-07-20', 'Roc Nation founder'),
-('A018', 'Nicki Minaj', 'Hip-Hop', '509-566-6860', 'nickiminaj@heavyonit.com', 'Brandon Jovan Garrett', '2023-08-30', '2027-10-10', 'Greatest female rapper of all time'),
-('A019', 'Brandy', 'R&B', '817-728-4793', 'brandy@motown.com', 'Ryan Ramsey', '2022-06-02', '2026-11-11', 'Singer and actress'),
-('A020', 'Lil Wayne', 'Hip-Hop', '983-977-6031', 'lilwayne@youngmomey.com', 'Cortez Bryant', '2005-01-01', '2027-06-22', 'Young Money founder');
+('A001', 'Taylor Swift', 'Pop', '212-555-0191', 'taylor@repmusic.com', 'Jack Antonoff', 'Platinum-selling artist'),
+('A002', 'Drake', 'Hip-Hop', '416-555-8821', 'drake@ovo.com', 'Noah 40 Shebib','OVO founder'),
+('A003', 'Bad Bunny', 'Reggaeton', '787-555-3311', 'badbunny@rimas.com', 'Noah Assad', 'Stadium tours'),
+('A004', 'The Weeknd', 'R&B', '647-555-1202', 'weeknd@xo.com', 'Wassim Sal Slaiby', 'Super Bowl performer'),
+('A005', 'Billie Eilish', 'Alternative', '310-555-4419', 'billie@darkroom.com', 'Danny Rukasin', 'Grammy winner'),
+('A006', 'Kendrick Lamar', 'Hip-Hop', '505-299-5703', 'kendrick@pgLang.com', 'Anthony Saleh', 'Pulitzer Prize winner'),
+('A007', 'Ariana Grande', 'Pop', '305-508-5662', 'ariana@repmusic.com', 'Brandon Creed', 'Most debut songs at #1 Billboard'),
+('A008', 'Harry Styles', 'Pop', '505-671-7847', 'harry@columbia.com', 'Jeffrey Azoff', 'Brit Award winner'),
+('A009', 'SZA', 'R&B', '276-501-3317', 'sza@tde.com', 'Terrence Henderson', 'Grammy winner'),
+('A010', 'Justin Bieber', 'Pop', '983-277-4396', 'justinbieber@defjam.com', 'Scooter Braun', 'Best male pop singer'),
+('A011', 'Rihanna', 'Pop', '983-323-0640', 'rihanna@rocnation.com', 'Jay Brown', 'Fenty Beauty founder'),
+('A012', 'Lady Gaga', 'Pop', '505-565-3023', 'ladygaga@interscope.com', 'Bobby Campbell', 'Oscar and Grammy winner'),
+('A013', 'Anitta', 'Brazilian Funk', '472-283-0515', 'anitta@repmusic.com', 'Rebeca Leon', 'International brazilian artist'),
+('A014', 'Rosalia', 'Latin Pop', '779-770-8803', 'rosalia@columbia.com', 'Jonathan Dickens', '#1 Classical and Pop album'),
+('A015', 'Mary J. Blige', 'R&B', '505-646-7659', 'maryblige@repmusic.com', 'Steve Rifkind', 'Grammy winner'),
+('A016', 'John Legend', 'R&B', '305-783-2011', 'johnlegend@repmusic.com', 'Ty Stiklorius', 'EGOT winner'),
+('A017', 'Jay-Z', 'Hip-Hop', '472-288-3811', 'jayz@rocnation.com', 'Desiree Perez', 'Roc Nation founder'),
+('A018', 'Nicki Minaj', 'Hip-Hop', '509-566-6860', 'nickiminaj@heavyonit.com', 'Brandon Jovan Garrett', 'Greatest female rapper of all time'),
+('A019', 'Brandy', 'R&B', '817-728-4793', 'brandy@motown.com', 'Ryan Ramsey', 'Singer and actress'),
+('A020', 'Lil Wayne', 'Hip-Hop', '983-977-6031', 'lilwayne@youngmomey.com', 'Cortez Bryant', 'Young Money founder');
+
+
+INSERT INTO artist_contracts VALUES
+('C001', 'A001', '2018-01-01', '2026-12-31', 'Active'),
+('C002', 'A002', '2017-05-12', '2025-05-11', 'Expired'),
+('C003', 'A003',  '2019-03-08', '2027-03-08', 'Active'),
+('C004', 'A004', '2016-02-02', '2024-12-31', 'Expired'),
+('C005', 'A005', '2020-10-10', '2028-10-10', 'Active'),
+('C006', 'A006', '2022-11-10', '2026-12-31', 'Active'),
+('C007', 'A007', '2011-08-22', '2026-11-30', 'Active'),
+('C008', 'A008', '2016-06-20', '2026-10-31', 'Active'),
+('C009', 'A009', '2013-07-25', '2025-12-22', 'Expiring soon...'),
+('C010', 'A010', '2008-04-05', '2026-11-24', 'Active'),
+('C011', 'A011', '2010-04-26', '2026-08-09', 'Active'),
+('C012', 'A012', '2007-11-12', '2026-01-30', 'Active'),
+('C013', 'A013', '2023-04-24', '2027-03-25', 'Active'),
+('C014', 'A014', '2018-02-28', '2027-05-20', 'Active'),
+('C015', 'A015', '2018-07-02', '2025-12-10', 'Expiring soon...'),
+('C016', 'A016', '2021-11-01', '2026-04-20', 'Active'),
+('C017', 'A017', '2008-06-06', '2029-07-20', 'Active'), 
+('C018', 'A018', '2023-08-30', '2027-10-10', 'Active'),
+('C019', 'A019', '2022-06-02', '2026-11-11', 'Active'), 
+('C020', 'A020', '2005-01-01', '2027-06-22', 'Active');
 
 
 INSERT INTO producers VALUES
@@ -235,8 +266,8 @@ INSERT INTO projects VALUES
 ('P046', 'A014', 'PR023', 'Berghain', '2024-06-01', '2024-08-10', 'Completed', 'LUX'),
 ('P047', 'A014', 'PR023', 'La Perla', '2024-09-10', '2024-11-10', 'Completed', 'LUX'),
 ('P048', 'A014', 'PR023', 'Frío', '2025-11-26', '2026-03-30', 'In Progress', DEFAULT),
-('P049', 'A014', 'PR023', 'BESO', '2022-03-10', '2022''03-11', 'Completed', 'RR'),
-('P050', 'A015', 'PR025', 'Mr. Wrong', '2010-04-05', '2010''05-20', 'Completed', 'My Life II…The Journey Continues (Act I)'),
+('P049', 'A014', 'PR023', 'BESO', '2022-03-10', '2022-03-11', 'Completed', 'RR'),
+('P050', 'A015', 'PR025', 'Mr. Wrong', '2010-04-05', '2010-05-20', 'Completed', 'My Life II…The Journey Continues (Act I)'),
 ('P051', 'A015', 'PR024', 'Family Affair', '1999-03-04', '1999-04-05', 'Completed', 'No More Drama'),
 ('P052', 'A015', 'PR026', 'Real Love', '1990-09-09', '1991-01-05', 'Completed', 'What''s The 411?'),
 ('P053', 'A015', 'PR016', 'Just Fine', '2006-01-15', '2006-02-02', 'Completed', 'Growing Pains'),
